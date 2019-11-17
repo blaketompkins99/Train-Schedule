@@ -1,0 +1,20 @@
+#head {
+    height: 100px;
+    width: 300px;
+    margin: 50px auto auto 475px;
+    text-align: center;
+}
+
+#schedule {
+    height: 500px;
+    width: 900px;
+    border: double 5px black;
+}
+
+.cells {
+    /* border: solid 1px black; */
+}
+
+.rows {
+    border: solid 1px black;
+}
