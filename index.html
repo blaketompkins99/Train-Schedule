@@ -15,61 +15,61 @@
     </div>
 
     <div id="schedule">
-        <table>
+        <table id="chooChoo">
             <tr class="rows">
                 <th class="cells">Name</th>
                 <th class="cells">Destination</th>
                 <th class="cells">First Train</th>
-                <th class="cells">Frequency</th>
+                <th class="cells">Frequency (In Minutes)</th>
                 <th class="cells">Next Departure</th>
             </tr>
             <tr class="rows">
                 <td class="cells">Thunder Express</td>
                 <td class="cells">San Antonio</td>
-                <td class="cells">8:00</td>
-                <td class="cells">78 minutes</td>
+                <td class="cells" id="startTime">8:00</td>
+                <td class="cells">78</td>
                 <td class="cells" id="thunderDepart"></td>
             </tr>
             <tr class="rows">
                 <td class="cells">Rocket Railway</td>
                 <td class="cells">New Orleans</td>
                 <td class="cells">8:25</td>
-                <td class="cells">36 minutes</td>
+                <td class="cells">36</td>
                 <td class="cells" id="rocketDepart"></td>
             </tr>
             <tr class="rows">
                 <td class="cells">Celtic Subway</td>
                 <td class="cells">New York City</td>
                 <td class="cells">7:15</td>
-                <td class="cells">28 minutes</td>
+                <td class="cells">28</td>
                 <td class="cells" id="celticDepart"></td>
             </tr>
             <tr class="rows">
                 <td class="cells">Trail Blazer Tracks</td>
                 <td class="cells">Sacremento</td>
                 <td class="cells">9:20</td>
-                <td class="cells">88 minutes</td>
+                <td class="cells">88</td>
                 <td class="cells" id="blazerDepart"></td>
             </tr>
             <tr class="rows">
                 <td class="cells">Clipper Railway</td>
                 <td class="cells">San Francisco</td>
                 <td class="cells">10:10</td>
-                <td class="cells">44 minutes</td>
+                <td class="cells">44</td>
                 <td class="cells" id="clipperDepart"></td>
             </tr>
             <tr class="rows">
                 <td class="cells">Spur Subway</td>
                 <td class="cells">Phoenix</td>
                 <td class="cells">10:35</td>
-                <td class="cells">102 minutes</td>
+                <td class="cells">102</td>
                 <td class="cells" id="spurDepart"></td>
             </tr>
             <tr class="rows">
                 <td class="cells">Maverick Express</td>
                 <td class="cells">Memphis</td>
                 <td class="cells">9:55</td>
-                <td class="cells">82 minutes</td>
+                <td class="cells">82</td>
                 <td class="cells" id="maverickDepart"></td>
             </tr>
         </table>
@@ -85,12 +85,12 @@
             <input type="text" id="timeInput"><br>
             <label id="frequencyLabel" for="frequencyInput">Enter the train's frequency</label><br>
             <input type="text" id="frequencyInput"><br>
-            <input id="addTime" type="submit" value="New Train">
+            <input id="addTrain" type="submit" value="New Train">
         </form>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
     <script src="assets/javascript/app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 </body>
 </html>
