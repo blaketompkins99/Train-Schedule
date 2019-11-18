@@ -5,16 +5,29 @@
     text-align: center;
 }
 
+table, th, td {
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
 #schedule {
-    height: 500px;
+    height: 175px;
     width: 900px;
-    border: double 5px black;
+    text-align: center;
+    margin: 0 0 0 175px;
 }
 
 .cells {
-    /* border: solid 1px black; */
+    width: 200px;
 }
 
-.rows {
-    border: solid 1px black;
+#admin {
+    width: 300px;
+    margin: 300px 0 0 450px;
+    text-align: center;
+}
+
+#addTime {
+    margin: 10px 0 0 0;
+    width: 80px;
 }
