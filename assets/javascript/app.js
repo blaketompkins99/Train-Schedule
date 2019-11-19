@@ -52,7 +52,7 @@ database.ref().on("child_added", function (childSnapshot) {
     var trainName = childSnapshot.val().name;
     var trainDestination = childSnapshot.val().destination;
     var trainTime = childSnapshot.val().time;
-    var trainFreq = childSnapshot.val().frequency;
+    var trainFreq = parseInt(childSnapshot.val().frequency);
     var nextTrain = childSnapshot.val().next;
 
     console.log(trainName);
