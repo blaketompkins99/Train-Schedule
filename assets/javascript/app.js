@@ -53,7 +53,13 @@ database.ref().on("child_added", function (childSnapshot) {
     var trainDestination = childSnapshot.val().destination;
     var trainTime = childSnapshot.val().time;
     var trainFreq = parseInt(childSnapshot.val().frequency);
-    var nextTrain = childSnapshot.val().next;
+    // var nextTrain = childSnapshot.val().next;
+
+    var firstTrainNew = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
+    var diffTime = moment().diff(moment(firstTrainNew), "minutes");
+    var remainder = diffTime % childSnapshot.val().frequency;
+    var minAway = childSnapshot.val().frequency - remainder;
+    var nextTrain = moment().add(minAway, "minutes");
 
     console.log(trainName);
     console.log(trainDestination);
@@ -61,7 +67,7 @@ database.ref().on("child_added", function (childSnapshot) {
     console.log(trainFreq);
     console.log(nextTrain);
 
-    var timeFormat = moment(trainTime).format('LT');
+    var timeFormat = moment(trainTime).format('hh:mm');
 
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
@@ -75,3 +81,7 @@ database.ref().on("child_added", function (childSnapshot) {
     $("#chooChoo > tbody").append(newRow);
 });
 
+
+// var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm");  
+// var firstTrainNew = moment(childInfo.val().firstTrain, "hh:mm");
+// var timeDifference = moment().diff(moment(firstTrainNew), "minutes");
