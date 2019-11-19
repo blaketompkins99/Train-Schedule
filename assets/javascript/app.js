@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-$("#thunderDepart").append(moment('13:00:00').add(24, 'hours').format('LT'));
+$("#thunderDepart").append(moment('2016-03-12 13:00:00').add(24, 'hours').format('LLL'));
 
 $("#addTrain").on("click", function (event) {
     event.preventDefault();
@@ -21,12 +21,14 @@ $("#addTrain").on("click", function (event) {
     var trainDestination = $("#destinationInput").val().trim();
     var trainTime = $("#timeInput").val().trim();
     var trainFreq = $("#frequencyInput").val().trim();
+    var nextTrain = moment().startOf('trainTime').fromNow();
 
     var newTrain = {
         name: trainName,
         destination: trainDestination,
         time: trainTime,
-        frequency: trainFreq
+        frequency: trainFreq,
+        next : nextTrain
     }
 
     database.ref().push(newTrain);
@@ -35,6 +37,7 @@ $("#addTrain").on("click", function (event) {
     console.log(newTrain.destination);
     console.log(newTrain.time);
     console.log(newTrain.frequency);
+    console.log(newTrain.next);
 
     $("#nameInput").val("");
     $("#destinationInput").val("");
@@ -50,19 +53,22 @@ database.ref().on("child_added", function (childSnapshot) {
     var trainDestination = childSnapshot.val().destination;
     var trainTime = childSnapshot.val().time;
     var trainFreq = childSnapshot.val().frequency;
+    var nextTrain = childSnapshot.val().next;
 
     console.log(trainName);
     console.log(trainDestination);
     console.log(trainTime);
     console.log(trainFreq);
+    console.log(nextTrain);
 
     var timeFormat = moment(trainTime).format('LT');
 
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(trainDestination),
-        $("<td>").text(trainTime),
-        $("<td>").text(trainFreq)
+        $("<td>").text(timeFormat),
+        $("<td>").text(trainFreq),
+        $("<td>").text(nextTrain)
     );
 
     // Append the new row to the table

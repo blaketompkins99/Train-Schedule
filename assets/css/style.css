@@ -1,12 +1,17 @@
+body {
+    background-image: url("../images/theLogo.jpeg");
+    color: white;
+}
+
 #head {
     height: 100px;
     width: 300px;
-    margin: 50px auto auto 475px;
+    margin: 50px auto auto 450px;
     text-align: center;
 }
 
 table, th, td {
-    border: solid 1px black;
+    border: solid 1px white;
     border-collapse: collapse;
 }
 
